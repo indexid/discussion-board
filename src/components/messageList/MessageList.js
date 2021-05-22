@@ -2,7 +2,7 @@ import SingleMessage from '../singleMessage/SingleMessage';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import './MessageList.css';
 
-const MessageList = ({ messages }) => {
+const MessageList = ({ messages, onDelete }) => {
   return (
     <div className="message_list_wrapper">
       <div className="message_list_support">
@@ -15,9 +15,11 @@ const MessageList = ({ messages }) => {
       <div className="message_list">
         {messages.map(msg => (
           <SingleMessage
+            onDelete={onDelete}
             date={msg.date}
             user={msg.user}
             msg={msg.text}
+            id={msg.id}
             key={msg.id}
           />
         ))}

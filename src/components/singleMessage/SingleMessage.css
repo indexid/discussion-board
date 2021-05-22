@@ -1,15 +1,30 @@
 .single_message {
-  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 10px 10px 10px 10px;
-  margin: 0px 10px 0px 10px;
+  justify-content: space-between;
   border-bottom: 1px solid grey;
   position: relative;
   animation-name: popUp;
   animation-duration: 0.5s;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 10px 0px 10px;
 }
+
+.single_message_actions {
+  display: flex;
+  top: 0;
+  /* change to 0 in order to make it work */
+  opacity: 0;
+}
+
+.single_message_content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* padding: 10px 10px 10px 10px; */
+  /* margin: 0px 10px 0px 10px; */
+}
+
 @keyframes popUp {
   0% {
     left: 0px;
@@ -20,8 +35,14 @@
     top: 0px;
   }
 }
+
 .single_message:hover {
   background-color: rgb(232, 231, 233);
+}
+
+.single_message:hover .single_message_actions {
+  background-color: rgb(232, 231, 233);
+  opacity: 1;
 }
 
 .single_message_user {
@@ -31,4 +52,27 @@
 .single_message_date {
   font-size: 0.8rem;
   color: grey;
+}
+
+.single_message_msg {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button .edit_button {
+  padding: 2px;
+  color: rgb(128, 128, 128, 0.6);
+}
+
+.edit_button:hover {
+  color: rgb(42, 154, 245);
+}
+
+.delete_button {
+  /* margin-right: 10px; */
+  padding: 5px;
+  color: rgb(128, 128, 128, 0.6);
+}
+.delete_button:hover {
+  color: rgb(42, 154, 245);
 }

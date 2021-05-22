@@ -11,10 +11,15 @@ const Wrapper = () => {
     setMessages([...messages, msg]);
   };
 
+  const handleOnDelete = id => {
+    const newMessages = messages.filter(message => !(message.id === id));
+    setMessages(newMessages);
+  };
+
   return (
     <div className="wrapper">
       <Header />
-      <MessageList messages={messages} />
+      <MessageList messages={messages} onDelete={handleOnDelete} />
       <MessageForm onSubmit={handleOnSubmit} />
     </div>
   );

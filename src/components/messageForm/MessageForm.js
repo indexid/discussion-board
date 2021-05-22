@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { IconButton } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
@@ -7,6 +7,19 @@ import './MessageForm.css';
 
 const MessageForm = props => {
   const [input, setInput] = useState('');
+
+  const sendButton = useRef();
+
+  const onInputChange = event => {
+    const inputValue = event.target.value;
+    if (inputValue.trim().length > 0) {
+      setInput(inputValue);
+      sendButton.current.style.opacity = 1;
+    } else {
+      setInput(inputValue);
+      sendButton.current.style.opacity = 0;
+    }
+  };
 
   const onFormSubmit = event => {
     event.preventDefault();
@@ -22,6 +35,7 @@ const MessageForm = props => {
       });
 
       setInput('');
+      sendButton.current.style.opacity = 0;
     }
   };
 
@@ -33,11 +47,15 @@ const MessageForm = props => {
           type="text"
           placeholder="Type a comment"
           value={input}
-          onChange={e => setInput(e.target.value)}
-          onSubmit={onFormSubmit}
+          onChange={onInputChange}
+          // onSubmit={onFormSubmit}
         />
 
-        <IconButton className="send__button" onClick={onFormSubmit}>
+        <IconButton
+          className="send__button"
+          onClick={onFormSubmit}
+          ref={sendButton}
+        >
           <SendIcon color="primary" />
         </IconButton>
       </div>
