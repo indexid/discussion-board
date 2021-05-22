@@ -1,5 +1,6 @@
 .App {
   height: 100vh;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   background-color: #ebe7e7f5;

@@ -27,13 +27,9 @@
 }
 
 .send__button {
-  opacity: 0;
+  visibility: hidden;
 }
 
 .messageForm__wrapper:hover {
   border: 1px solid blue;
 }
-
-/* .message__input:focus + .send__button {
-  opacity: 1;
-} */

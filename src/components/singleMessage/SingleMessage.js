@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { parseDate } from '../../utils/utils';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { IconButton } from '@material-ui/core';
 import './SingleMessage.css';
 
 const SingleMessage = ({ date, msg, user, id, onDelete }) => {
@@ -24,13 +23,16 @@ const SingleMessage = ({ date, msg, user, id, onDelete }) => {
         <div className="single_message_msg">{msg}</div>
       </div>
       <div className="single_message_actions">
-        <IconButton className="edit_button" onClick={() => {}}>
+        <button
+          className="edit_button"
+          onClick={() => alert('Edit button was clicked')}
+        >
           <EditIcon fontSize="small" />
-        </IconButton>
+        </button>
 
-        <IconButton className="delete_button" onClick={() => onDelete(id)}>
+        <button className="delete_button" onClick={() => onDelete(id)}>
           <DeleteIcon fontSize="small" />
-        </IconButton>
+        </button>
       </div>
     </div>
   );
